@@ -16,14 +16,14 @@
         <form id="searchForm" actions="{% url 'search' 1 %}" method="post">
             {% csrf_token %}
             <div class="search-keyword">
-                <input name="kword" type="text" class="keyword" maxlength="120">
+                <input id="kword" name="kword" type="text" class="keyword" maxlength="120">
             </div>
-            <input id="subSerh" type="submit" class="search-button" value="搜 索">
+            <input id="subSerch" type="submit" class="search-button" value="搜 索">
         </form>
         <div id="suggest" class="search-suggest"></div>
         <div class="search-hot-words">
             {% for s in searchs %}
-            <a target="play" href="{% url 'play' s.song.id %}">
+{#            <a target="play" href="{% url 'play' s.song.id %}">#}
                 {{ s.song.name }}
             </a>
             {% endfor %}
@@ -38,10 +38,10 @@
                 <a href="{% url 'index' %}">首页</a>
             </li>
             <li>
-                <a href="{% url 'ranking' %}" target="_blank">歌曲排行</a>
+                <a href="{% url 'ranking' %}">歌曲排行</a>
             </li>
             <li>
-                <a href="{% url 'home' 1 %}" target="_blank">用户中心</a>
+                <a href="{% url 'home' 1 %}" >用户中心</a>
             </li>
         </ul><!--end nav-box-->
     </div>
@@ -58,9 +58,9 @@
             {% for p in pages.object_list %}
             <li class="js_songlist__child">
                 <div class="songlist__item">
-                    <div class="songlist__songname_txt">
-                        <span class="songlist__songname">
-                            <a href="{% url 'play' p.id %}" class="js_song" target="play">{{ p.name }}</a>
+                    <div class="songlist__songname">
+                        <span class="songlist__songname_txt">
+{#                            <a href="{% url 'play' p.id %}" class="js_song" target="play">{{ p.name }}</a>#}
                         </span>
                     </div>
                     <div class="songlist__artist">
@@ -80,7 +80,7 @@
                 {% endif %}
             {% for p in pages.paginator.page_range %}
                 {% if pages.number == p %}
-            <span class="sel">{{ p }}</span>
+                    <span class="sel">{{ p }}</span>
                 {% else %}
                     <a href="{% url 'search' p %}"
                        target="_self">{{ p }}</a>

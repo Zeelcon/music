@@ -17,8 +17,8 @@ class Label(models.Model):
 #歌曲信息表
 class Song(models.Model):
     id =models.AutoField('序号', primary_key=True)
-    name = models.CharField('歌名', max_length=50)
-    singer = models.CharField('歌手',max_length=50)
+    name = models.CharField('标题', max_length=50)
+    singer = models.CharField('作者',max_length=50)
     time = models.CharField('时长', max_length=10)
     album = models.CharField('专辑', max_length=50)
     languages = models.CharField('语种', max_length=20)
