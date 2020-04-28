@@ -6,7 +6,7 @@
 <link rel="shortcut icon" href="{% static "css/home.css" %}">
 {% endblock %}
 {% block body %}
-<body>
+<body class="member">
 <div class="header">
     <a href="/" class="logo">
         <img src="{% static "image/logo.png" %}">
@@ -36,10 +36,10 @@
                 <a href="{% url 'index' %}">首页</a>
             </li>
             <li>
-                <a href="{% url 'ranking' %}" target="_blank">歌曲排行</a>
+                <a href="{% url 'ranking' %}" >歌曲排行</a>
             </li>
             <li>
-                <a href="{% url 'home' 1 %}" target="_blank">用户中心</a>
+                <a href="{% url 'home' 1 %}" >用户中心</a>
             </li>
         </ul><!--end nav-box-->
     </div>
@@ -72,9 +72,10 @@
                     <ul class="songlist__list">
                         {% for item in pages.object_list %}
                         <li>
-                            <div class="sonnglist__item songlist__item--even">
+                            <div class="songlist__item songlist__item--even">
                                 <div class="songlist__songname">
-                                    <a href="{% url 'play' item.id %}" class="js_song songlist__songname_txt">{{ item.name }}</a>
+                                    <a href="{% url 'play' item.id %}"
+                                       class="js_song songlist__songname_txt">{{ item.name }}</a>
                                 </div>
                                 <div class="songlist__artist">
                                     <a href="javascript:;" class="singer_name">
@@ -91,7 +92,8 @@
             <div class="page-box">
                 <div class="pagebar" id="pageBar">
                     {% if pages.has_previous %}
-                    <a href="{% url 'home' pages.previous_page_number %}" class="prev" target="_self"><i></i>上一页</a>
+                    <a href="{% url 'home' pages.previous_page_number %}"
+                       class="prev" target="_self"><i></i>上一页</a>
                     {% endif %}
                 {% for page in pages.paginator.page_range %}
                 {% if pages.number == page %}

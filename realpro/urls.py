@@ -26,7 +26,7 @@ urlpatterns = [
     path('play/', include('play.urls')),
     path('comment/', include('comment.urls')),
     path('search/', include('search.urls')),
-    # path('user/', include('user.urls')),
+    path('user/', include('user.urls')),
     # 定义媒体资源路由信息
     re_path('media/(?P<path>.*)', serve,{'document_root':settings.MEDIA_ROOT}, name='media')
 ]

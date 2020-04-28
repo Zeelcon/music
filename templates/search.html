@@ -24,8 +24,8 @@
         <div class="search-hot-words">
             {% for s in searchs %}
 {#            <a target="play" href="{% url 'play' s.song.id %}">#}
-                {{ s.song.name }}
-            </a>
+{#                {{ s.song.name }}#}
+{#            </a>#}
             {% endfor %}
         </div>
     </div>
@@ -54,7 +54,7 @@
             <li class="songlist__header_author">歌手</li>
             <li class="songlist__header_time">时长</li>
         </ul>
-        <ul class="songlist_list">
+        <ul class="songlist__list">
             {% for p in pages.object_list %}
             <li class="js_songlist__child">
                 <div class="songlist__item">
@@ -64,7 +64,7 @@
                         </span>
                     </div>
                     <div class="songlist__artist">
-                        <a href="javascript:;"class="singer_name">
+                        <a href="javascript:;" class="singer_name">
                             {{ p.singer }}</a>
                     </div>
                     <div class="songlist__time">{{ p.time }}</div>

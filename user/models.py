@@ -7,4 +7,9 @@ class MyUser(AbstractUser):
     mobile=models.CharField('手机号码',max_length=11,unique=True)
     #返回
     def __str__(self):
-        return
+        if self.username:
+            # 如果不为空则返回用户名
+            return self.username
+        else:
+            # 如果用户名为空则返回不能为空的对象
+            return self.username

@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import *
-urlpattern=[
+urlpatterns=[
     #用户注册和登录
     path('login.html', loginView, name='login'),
     #用户中心

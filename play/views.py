@@ -24,14 +24,14 @@ def playView(request, id):
         #歌曲
         if songs.lyrics != '暂无歌词':
             lyrics = str(songs.lyrics.url)[1::]
-            with open(lyrics, 'r',encoding='utf-8') as f:
-                lyrics = f.read()
+            # with open(lyrics, 'r',encoding='utf-8') as f:
+            #     lyrics = f.read()
         #添加和播放次数
         #功能拓展：可食用Session实现每天只添加一次播放次数
         p = Dynamic.objects.filter(song_id=int(id)).first()
         plays = p.plays + 1 if p else 1
         Dynamic.objects.update_or_create(song_id=id , defaults={'plays':plays})
-        return  render(request, 'play.html',locals())
+    return render(request, 'play.html',locals())
 
 def downloadView(request, id):
     #添加下载次数
@@ -42,7 +42,7 @@ def downloadView(request, id):
     #根据id查找歌曲信息
     songs = Song.objects.get(id=int(id))
     file = songs.file.url[1::]
-    def dile_iterator(file, chunk_size=512):
+    def file_iterator(file, chunk_size=512):
         with open(file, 'rb') as  f :
             while True:
                 c = f.read(chunk_size)
@@ -52,7 +52,7 @@ def downloadView(request, id):
     #将文件内容写入StreamingHttpResponse对象
     #并以字节流方式返回给用户，实现文件下载
     f = str(id) + '.m4a'
-    response = StreamingHttpResponse(dile_iterator(file))
+    response = StreamingHttpResponse(file_iterator(file))
     response['Content-Type'] = 'application/octet-stream'
     response['Content-Disposition']='attachment;filename="%s"'%(f)
     return response

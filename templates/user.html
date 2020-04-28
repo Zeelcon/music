@@ -9,8 +9,8 @@
 <body class="review">
 <div class="wrapper">
     <div class="header clearfix">
-        <a href="/" class="logo">我的音乐</a>
-        <span class="logo-tip">Hi,我的音乐欢迎您！ </span>
+        <a href="/" class="logo">音乐社区</a>
+        <span class="logo-tip">Hi,Commusic欢迎您！ </span>
     </div>
     <div class="content clearfix">
         <!--登录注册模块-->
@@ -21,18 +21,23 @@
                     {% csrf_token %}
                     <div class="itembox user-name">
                         <div class="item">
-                            <input type="password" name="password" placeholder="登录密码" class="txt tabInput">
+                            <input type="text" name="loginUser" placeholder="用户名或手机号" class="txt tabInput">
                         </div>
                     </div>
+                <div class="itembox user-pwd">
+                    <div class="item">
+                            <input type="password" name="password" placeholder="登录密码" class="txt tabInput">
+                    </div>
+                </div>
                     {% if tips %}
-                    <div>提示：<span>{{ tips }}</span></div>
+                        <div>提示：<span>{{ tips }}</span></div>
                     {% endif %}
                 <div id="loginBtnBox" class="login-btn">
                     <input id="J_LoginButton" type="submit" value="马上登录" class="tabInput pass-btn" />
                 </div>
                 <div class="pass-relink">
                     还没有我的音乐账号？
-                    <a class="swich" href="javascript:;">免费注册</a>
+                    <a class="switch" href="javascript:;">免费注册</a>
                 </div>
                 </form>
             </div>
@@ -63,7 +68,7 @@
                         </div>
                     </div>
                     {% if tips %}
-                    <div>提示：<span>{{ tips }}</span></div>
+                        <div>提示：<span>{{ tips }}</span></div>
                     {% endif %}
                 <div class="member-pass clearfix">
                     <input id="agree" name="agree" checked="checked" type="checkbox" value="1">
