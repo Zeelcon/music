@@ -10,7 +10,7 @@
 <div class="wrapper">
     <div class="header clearfix">
         <a href="/" class="logo">音乐社区</a>
-        <span class="logo-tip">Hi,Commusic欢迎您！ </span>
+        <span class="logo-tip">Commusic欢迎您！ </span>
     </div>
     <div class="content clearfix">
         <!--登录注册模块-->
@@ -21,7 +21,7 @@
                     {% csrf_token %}
                     <div class="itembox user-name">
                         <div class="item">
-                            <input type="text" name="loginUser" placeholder="用户名或手机号" class="txt tabInput">
+                            <input type="text" name="loginUser" class="txt tabInput">
                         </div>
                     </div>
                 <div class="itembox user-pwd">
@@ -83,6 +83,24 @@
         </div>
     </div>
 </div>
-<script data-main="{% static "js/register.js" %}" src="{% static "js/require.js" %}"></script>
+<script>
+    var form_fields = document.getElementsByTagName('input');
+    form_fields[1].placeholder = '用户名或手机号..';
+    form_fields[2].placeholder = '登录密码..';
+    form_fields[3].placeholder = '';
+    form_fields[4].placeholder = 'Email..';
+    form_fields[5].placeholder = 'Enter password..';
+    form_fields[6].placeholder = 'Enter password again..';
+    {#form_fields[7].placeholder = 'Enter password..';#}
+
+
+
+    for (var field in form_fields){
+        form_fields[field].className += 'form-control'
+    }
+</script>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script data-main="{% static "js/user.js" %}" src="{% static "js/require.js" %}"></script>
+<script src={% static "js/vue.js" %}></script>
 </body>
 {% endblock %}

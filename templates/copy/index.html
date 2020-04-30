@@ -4,8 +4,6 @@
 <link rel="shortcut icon" href="{% static "favicon.ico" %}">
 <link rel="shortcut icon" href="{% static "css/common.css" %}">
 <link rel="shortcut icon" href="{% static "css/index.css" %}">
-<link rel="stylesheet" href="{% static "css/index.css" %}">
-<link rel="stylesheet" href="{% static "css/base.css" %}">
 {% endblock %}
 {% block body %}
 <body class="index">
@@ -14,17 +12,6 @@
     <a href="/" class="logo">
         <img src="{% static "image/logo1.png" %}" alt="">
     </a>
-    <ul class="nav clearfix">
-            <li>
-                <a href="{% url 'index' %}">首页</a>
-            </li>
-            <li>
-                <a href="{% url 'ranking' %}">歌曲排行</a>
-            </li>
-            <li>
-                <a href="{% url 'home' 1 %}">用户中心</a>
-            </li>
-        </ul><!--end nav-box-->
     <div class="search-box">
         <form id="searchForm" actions="{% url 'search' 1 %}" method="post">
             {% csrf_token %}
@@ -44,12 +31,24 @@
     </div>
 </div>
 <!--end header-->
-<div class="in-line">
 <div class="nav-box">
     <div class="nav-box-inner">
+        <ul class="nav clearfix">
+            <li>
+                <a href="{% url 'index' %}">首页</a>
+            </li>
+            <li>
+                <a href="{% url 'ranking' %}">歌曲排行</a>
+            </li>
+            <li>
+                <a href="{% url 'home' 1 %}">用户中心</a>
+            </li>
+        </ul><!--end nav-box-->
         <div class="category-nav">
             <div class="category-nav-header">
-                <img src="{% static "image/style.png" %}">
+                <strong>
+                    <a href="javascript:;" title="">音乐分类</a>
+                </strong>
             </div>
             <div class="category-nav-body">
                 {% for l in labels %}
@@ -84,27 +83,27 @@
             <div id="bannerRightBtn" class="banner_btn"></div>
         </div>
 </div>
-</div>
-</div>
-<div class="right-side">
+
 <div class="aside">
-    <img src="{% static "image/hot.png" %}">
+    <h2>热门歌曲</h2>
     <ul>
         {% for p in popular %}
             <li>
             <span>
+                {{ forloop.counter }}
                 <a target="play" href="{% url 'play' p.song.id %}">
-                    {{ forloop.counter }}  {{ p.song.name }}
+                    {{ p.song.name }}
                 </a>
             </span>
             </li>
         {% endfor %}
     </ul>
 </div>
+</div>
 <div class="today clearfix">
     <div class="today-header">
         <i></i>
-        <img src="{% static "image/new.png" %}">
+        <h2>新歌推荐</h2>
     </div>
     <div class="today-list-box slide">
         <div id="J_TodayRec" class="today-list">
@@ -132,10 +131,8 @@
 </div><!--end today-->
 <div class="section">
 <ul id="J_Tab" class="tab-trigger">
-    <li data-cur="0" class="current t_c">
-        <img src="{% static "image/search.png" %}">
-    </li>
-    <!---<li data-cur="1" class="t_c">热门下载</li>-->
+    <li data-cur="0" class="current t_c">热门搜索</li>
+    <li data-cur="1" class="t_c">热门下载</li>
 </ul>
 <div class="tab-container">
     <div id="J_Tab_Con" class="tab-container-cell">
@@ -171,31 +168,6 @@
 </div>
 </div><!--end section-->
 </div>
-
-<!--<style>
-        * {
-        margin: 0;
-        padding: 0;
-    }
-    body {
-        margin: 0 auto;
-        font-size: 12px;
-        height: 800px;
-        width: 900px;
-    }
-    .header {
-        height: 120px;
-        background-color: #81ecec;
-        background-repeat:repeat-x ;
-    }
-    .header .logo {
-        float: left;
-    }
-    .header .search-box {
-        float: right;
-        padding-right: 20px;
-        line-height: 80px;
-</style>-->
 <script data-main="{% static "js/index.js" %}" src="{% static "js/require.js" %}"></script>
 </body>
 {% endblock %}

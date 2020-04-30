@@ -3,7 +3,7 @@ from .models import *
 # Register your models here.
 
 admin.site.site_title = '后台管理系统'
-admin.site.site_header = '我的音乐'
+admin.site.site_header = 'Commusic后台管理系统'
 
 @admin.register(Label)
 class LabelAdmin(admin.ModelAdmin):

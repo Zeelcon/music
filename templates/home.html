@@ -4,13 +4,27 @@
 <link rel="shortcut icon" href="{% static "favicon.ico" %}">
 <link rel="shortcut icon" href="{% static "css/common.css" %}">
 <link rel="shortcut icon" href="{% static "css/home.css" %}">
+<link rel="stylesheet" href="{% static "css/home.css" %}">
+<link rel="stylesheet" href="{% static "css/base.css" %}">
 {% endblock %}
 {% block body %}
-<body class="member">
+<body class="index">
+<!--header-->
 <div class="header">
     <a href="/" class="logo">
-        <img src="{% static "image/logo.png" %}">
+        <img src="{% static "image/logo1.png" %}" alt="">
     </a>
+    <ul class="nav clearfix">
+            <li>
+                <a href="{% url 'index' %}">首页</a>
+            </li>
+            <li>
+                <a href="{% url 'ranking' %}">歌曲排行</a>
+            </li>
+            <li>
+                <a href="{% url 'home' 1 %}">用户中心</a>
+            </li>
+        </ul><!--end nav-box-->
     <div class="search-box">
         <form id="searchForm" actions="{% url 'search' 1 %}" method="post">
             {% csrf_token %}
@@ -28,31 +42,19 @@
             {% endfor %}
         </div>
     </div>
-</div><!--end header-->
-<div class="nav-box">
-    <div class="nav-box-inner">
-        <ul class="nav clearfix">
-            <li>
-                <a href="{% url 'index' %}">首页</a>
-            </li>
-            <li>
-                <a href="{% url 'ranking' %}" >歌曲排行</a>
-            </li>
-            <li>
-                <a href="{% url 'home' 1 %}" >用户中心</a>
-            </li>
-        </ul><!--end nav-box-->
-    </div>
 </div>
+<!--end header-->
 <div class="mod_profile js_user_data" style="">
     <div class="section_inner">
+        <div class="out">
+            <a href="{% url 'logout' %}" style="color:blue;">退出登录</a>
+        </div>
         <div class="profile__cover_link">
             <img src="{% static "image/user.jpg" %}" class="profile__cover">
         </div>
         <h1 class="profile__tit">
             <span class="profile__name">{{ user.username }}</span>
         </h1>
-        <a href="{% url 'logout' %}" style="color:white;">退出登录</a>
     </div>
 </div>
 <!--歌曲播放记录--->
