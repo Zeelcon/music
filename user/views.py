@@ -38,7 +38,7 @@ def loginView(request):
                 if u.errors.get('username', ''):
                     tips=u.errors.get('username','注册失败')
                 else:
-                    tips=u.errors.get('mobile','注册成功')
+                    tips=u.errors.get('mobile','注册失败')
     return render(request, 'user.html', locals())
 #用户中心
 #设置用户登录限制

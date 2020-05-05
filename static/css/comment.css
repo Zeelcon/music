@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0 auto;
+    font-size: 12px;
+    height: 800px;
+    width: 100%;
+}
+
+.header {
+    height: 48px;
+    background-color: white;
+    background-repeat:repeat-x ;
+    text-align: center;
+}
+.header .logo {
+    float: left;
+    height: 48px;
+    width: 120px;
+}
+.header .logo img {
+    height: 47px;
+    padding: 0;
+    margin: 0;
+    width: 120px;
+}
+.header .nav a{
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.header .search-box {
+    float: right;
+    padding-right: 50px;
+    line-height: 20px;
+}
+.header .search-box #search-Form {
+
+}
+#kword {
+    float: right;
+    padding: 0;
+}
+#subSerch {
+    float: right;
+    padding: 0;
+}
+
+.header ul {
+    list-style-type: none;
+    /*clear: both;*/
+}
+.header li{
+    margin: 0;
+    border: 0 solid #55efc4;
+    height: 48px;
+    width: 100px;
+    float: left;
+}
+.header li a{
+    position: relative;
+    font-size:16px;
+    line-height: 48px;
+}
+.header li:last-child{
+    clear: right;
+}
+.header ul li:hover,li:active{
+    background-color: #74b9ff;
+    display: block;
+    font-weight: bold;
+    color: #55efc4;
+    padding: 0;
+    text-decoration: none;
+}
+
+
+<!--s -->
+.wrapper{
+
+}
+.section{
+    width: 100%;
+    margin-left: 100px;
+}
+.section-header{
+    font-size: 20px;
+}

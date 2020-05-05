@@ -4,15 +4,28 @@
 <link rel="shortcut icon" href="{% static "favicon.ico" %}">
 <link rel="shortcut icon" href="{% static "css/common.css" %}">
 <link rel="shortcut icon" href="{% static "css/play.css" %}">
+<link rel="stylesheet" href="{% static "css/play.css" %}">
+<link rel="stylesheet" href="{% static "css/base.css" %}">
 {% endblock %}
 {% block body %}
-<body>
+<body class="index">
+<!--header-->
 <div class="header">
     <a href="/" class="logo">
-        <img src="{% static "image/logo1.png" %}">
+        <img src="{% static "image/logo1.png" %}" alt="">
     </a>
+    <ul class="nav clearfix">
+            <li>
+                <a href="{% url 'index' %}">首页</a>
+            </li>
+            <li>
+                <a href="{% url 'ranking' %}">歌曲排行</a>
+            </li>
+            <li>
+                <a href="{% url 'home' 1 %}">用户中心</a>
+            </li>
+        </ul><!--end nav-box-->
     <div class="search-box">
-    <!--歌曲搜索框--->
         <form id="searchForm" actions="{% url 'search' 1 %}" method="post">
             {% csrf_token %}
             <div class="search-keyword">
@@ -29,22 +42,8 @@
             {% endfor %}
         </div>
     </div>
-</div><!--end header-->
-<div class="nav-box">
-    <div class="nav-box-inner">
-        <ul class="nav clearfix">
-            <li>
-                <a href="{% url 'index' %}">首页</a>
-            </li>
-            <li>
-                <a href="{% url 'ranking' %}">歌曲排行</a>
-            </li>
-            <li>
-                <a href="{% url 'home' 1 %}">用户中心</a>
-            </li>
-        </ul><!--end nav-box-->
-    </div>
 </div>
+<!--end header-->
 <div class="wrapper clearfix">
     <div class="content">
         <div class="product-detail-box clearfix">
@@ -63,40 +62,39 @@
                                         <div class="jp-play-bar"></div>
                                     </div>
                                 </div>
-                                <div class="jp-time">
-                                    <span class="jp-current-time"></span> /
-                                    <span class="jp-duration"></span>
-                                </div>
                             </div>
+                            <audio controls class="player1">
+                                <source src="{{ songs.file.url }}" type="audio/mpeg">
+                            </audio>
                             <div class="song_error_corr" id="songCorr">
-                            <b class="err_btn">纠错</b>
-                            <ul>
-                                <li><span>歌词文本错误</span></li>
-                                <li><span>歌词时间错误</span></li>
-                                <li><span>歌词错误</span></li>
-                            </ul>
+{#                            <b class="err_btn">纠错</b>#}
+{#                            <ul>#}
+{#                                <li><span>歌词文本错误</span></li>#}
+{#                                <li><span>歌词时间错误</span></li>#}
+{#                                <li><span>歌词错误</span></li>#}
+{#                            </ul>#}
                         </div>
                         <div class="jp-volume-bar">
                             <div class="jp-volume-bar-value"></div>
                         </div>
-                        <ul class="jp-controls clearfix">
-                            <li>
-                                <a class="jp-play" tabindex="1" title="play"></a>
-                                <a class="jp-pause" tabindex="1" title="pause"></a>
-                            </li>
-                            <li>
-                                <a class="jp-stop" tabindex="1" title="stop"></a>
-                            </li>
-                            <li>
-                                <a class="jp-repeat" tabindex="1" title="repeat"></a>
-                                <a class="jp-repeat-off" tabindex="1" title="repeat off"></a>
-                            </li>
-                            <li class="sound">
-                                <a class="jp-mute" tabindex="1" title="mute">
-                                </a>
-                                <a class="jp-unmute" tabindex="1" title="unmute"></a>
-                            </li>
-                        </ul>
+{#                        <ul class="jp-controls clearfix">#}
+{#                            <li>#}
+{#                                <a class="jp-play" tabindex="1" title="play"></a>#}
+{#                                <a class="jp-pause" tabindex="1" title="pause"></a>#}
+{#                            </li>#}
+{#                            <li>#}
+{#                                <a class="jp-stop" tabindex="1" title="stop"></a>#}
+{#                            </li>#}
+{#                            <li>#}
+{#                                <a class="jp-repeat" tabindex="1" title="repeat"></a>#}
+{#                                <a class="jp-repeat-off" tabindex="1" title="repeat off"></a>#}
+{#                            </li>#}
+{#                            <li class="sound">#}
+{#                                <a class="jp-mute" tabindex="1" title="mute">#}
+{#                                </a>#}
+{#                                <a class="jp-unmute" tabindex="1" title="unmute"></a>#}
+{#                            </li>#}
+{#                        </ul>#}
                     </div>
                 </div>
                 <div class="jplayer_content">
@@ -112,18 +110,18 @@
                         <span>歌手：{{ songs.singer }}</span>
                     </div>
                     <div class="product-price-info">
-                        <span>专辑：{{ songs.album }}</span>
+                        <span>专辑：{{ songs.album }}</span><br>
                         <span>语种：{{ songs.languages }}</span>
                     </div>
                     <div class="product-price-info">
-                        <span>流派：{{ songs.type }}</span>
+                        <span>流派：{{ songs.type }}</span><br>
                         <span>发行时间：{{ songs.release }}</span>
                     </div>
                 </div><!--end product-price-->
                 <div class="product-comment">
                     <div class="links clearfix">
                         <a class="minimum-link-A click_down" href="{% url 'download' songs.id %}">下载</a>
-                        <a class="minimum-link-A" href="{% url 'comment' songs.id %}">歌曲点评</a>
+                        <a class="minimum-link-A" href="{% url 'comment' songs.id %}">歌曲点评</a><br><br><br>
                     </div><!--end links-->
                     <h3 class="list_title">当前播放列表</h3>
                     <ul class="playing-li" id="songlist">

@@ -46,21 +46,27 @@
 <!--end header-->
 <div class="mod_profile js_user_data" style="">
     <div class="section_inner">
-        <div class="out">
-            <a href="{% url 'logout' %}" style="color:blue;">退出登录</a>
-        </div>
+
         <div class="profile__cover_link">
-            <img src="{% static "image/user.jpg" %}" class="profile__cover">
+            <div class="userhead">
+                <img src="{% static "image/user.jpg" %}" class="profile__cover">
+                <h1 class="profile__tit">
+                    <span class="profile__name">{{ user.username }}</span>
+                </h1>
+            </div>
+
+                <a href="{% url 'logout' %}" style="color:blue;">退出登录</a>
         </div>
-        <h1 class="profile__tit">
-            <span class="profile__name">{{ user.username }}</span>
-        </h1>
+        <div class="out">
+
+        </div>
+
     </div>
 </div>
 <!--歌曲播放记录--->
 <div class="main main--profile" style="">
     <div class="mod_tab profile_nav" role="nav" id="nav">
-        <span class="mod_tab__item mod_tab__current" id="hear_tab">我听过的歌</span>
+        <img class="mod_tab__item mod_tab__current" id="hear_tab" src="{% static "image/history.png" %}">
     </div>
     <div class="js_box" style="display: block;">
         <div class="profile_cont">

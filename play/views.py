@@ -51,7 +51,7 @@ def downloadView(request, id):
                 else:break
     #将文件内容写入StreamingHttpResponse对象
     #并以字节流方式返回给用户，实现文件下载
-    f = str(id) + '.m4a'
+    f = str(id) + '.mp3'
     response = StreamingHttpResponse(file_iterator(file))
     response['Content-Type'] = 'application/octet-stream'
     response['Content-Disposition']='attachment;filename="%s"'%(f)

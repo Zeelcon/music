@@ -6,6 +6,7 @@
 <link rel="shortcut icon" href="{% static "css/index.css" %}">
 <link rel="stylesheet" href="{% static "css/index.css" %}">
 <link rel="stylesheet" href="{% static "css/base.css" %}">
+<link rel="stylesheet" href="{% static "css/swiper.min.css" %}">
 {% endblock %}
 {% block body %}
 <body class="index">
@@ -67,22 +68,21 @@
 </div>
 <div class="wrapper clearfix">
     <div class="main">
-        <div id="J_FocusSlider" class="focus">
-            <div id="bannerLeftBtn" class="banner_btn"></div>
-            <ul class="focus-list f_w">
-                <li class="f_s">
-                    <a target="play" href="{% url 'play' 12 %}" class="layz_load">
-                        <img data-src="{% static '/image/datu-1.png' %}" width="750" height="275" alt="">
-                    </a>
-                </li>
-                <li class="f_s">
-                    <a target="play" href="{% url 'play' 13 %}" class="layz_load">
-                        <img data-src="{% static '/image/datu-2.png' %}" width="750" height="275" alt="">
-                    </a>
-                </li>
-            </ul>
+                <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
+                    <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-654px, 0px, 0px);">
+                        <div class="swiper-slide swiper-slide-active" style="width: 610px;">
+                            <img class="datu" src="{% static "image/datu-1.png" %}">
+                        </div>
+                        <div class="swiper-slide swiper-slide-next" style="width: 610px;">
+                            <img class="datu" src="{% static "image/datu-2.png" %}">
+                        </div>
+                        <div class="swiper-slide" style="width: 610px;">
+                            <img class="datu" src="{% static "image/history.png" %}">
+                        </div>
+                    </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                </div>
             <div id="bannerRightBtn" class="banner_btn"></div>
-        </div>
 </div>
 </div>
 </div>
@@ -196,6 +196,10 @@
         padding-right: 20px;
         line-height: 80px;
 </style>-->
+<script src="{% static "js/swiper.min.js" %}"></script>
+<script>
+    var swiper = new Swiper('.swiper-container');
+  </script>
 <script data-main="{% static "js/index.js" %}" src="{% static "js/require.js" %}"></script>
 </body>
 {% endblock %}

@@ -78,20 +78,48 @@ body {
 
 /*这是一个*/
 .profile__cover_link{
-    float: left;
-    margin-left: 170px;
+    width: 100%;
+    height: 210px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: #dddddd;
+    background:url(../../static/image/userbg.jpg);
+}
+.profile__cover_link .userhead{
+
+}
+.profile__cover_link a{
+
+}
+.profile__tit{
+
 }
 
-.profile__name{
-    float: right;
-    margin-right: 50%;
+.main--profile {
+
 }
-.out {
-    float: right;
-    margin-right: 40%;
-    text-align: center;
+.profile_nav {
+    margin-left: 100px;
+    margin-top: 30px;
 }
 .songlist__header{
-    float: right;
     list-style-type: none;
 }
+.mod_songlist{
+    width: 100%;
+    border: 1px solid black;
+}
+.songlist__header li{
+    display: inline;
+    margin-left: 300px;
+}
+.songlist__list li{
+    display: inline;
+    margin-left: 285px;
+
+}
+
+.mod_tab img{
+    height: 50px;
+}
+

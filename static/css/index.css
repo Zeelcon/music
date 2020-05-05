@@ -109,8 +109,7 @@ body {
 
 /*热门歌曲*/
 .wrapper {
-    height: 400px;
-    width: 120px;
+    width: 750px;
     float: left ;
 }
 
@@ -159,3 +158,10 @@ body {
 .current img{
     width: 160px;
 }
+.swiper-wrapper{
+    border: 1px solid black;
+}
+/*.swiper-slide img{*/
+/*    width: 300px;*/
+/*    height: 700px;*/
+/*}*/
