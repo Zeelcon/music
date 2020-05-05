@@ -110,3 +110,8 @@ body {
     height: 100px;
     width: 100px;
 }
+.cate-item a{
+    display: block;
+    height: 100%;
+    width: 100%;
+}

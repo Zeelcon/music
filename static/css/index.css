@@ -103,12 +103,16 @@ body {
     height: 100%;
     width: 100%;
 }
-
+.category-nav a{
+    display: block;
+    width: 100%;
+}
 /*datu*/
 
 
 /*热门歌曲*/
 .wrapper {
+    margin-left: 50px;
     width: 750px;
     float: left ;
 }
@@ -159,9 +163,12 @@ body {
     width: 160px;
 }
 .swiper-wrapper{
-    border: 1px solid black;
+
 }
 /*.swiper-slide img{*/
 /*    width: 300px;*/
 /*    height: 700px;*/
 /*}*/
+.swiper-wrapper img{
+    width: 750px;
+}
