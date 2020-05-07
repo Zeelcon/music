@@ -6,7 +6,7 @@ import time
 # Create your views here.
 def commentView(request, id):
     #热搜歌曲
-    searchs = Dynamic.objects.select_related('song').order_by('-search').all()[:6]
+    searchs = Dynamic.objects.select_related('song').order_by('-search').all()[:1]
     #点评内容的提交功能
     if request.method == 'POST':
         text = request.POST.get('comment', '')
@@ -31,7 +31,7 @@ def commentView(request, id):
             raise Http404('歌曲不存在')
         c = Comment.objects.filter(song_id=id).order_by('date')
         page = int(request.GET.get('page',1))
-        paginator =Paginator(c,2)
+        paginator =Paginator(c,10)
         try:
             pages = paginator.page(page)
         except PageNotAnInteger:

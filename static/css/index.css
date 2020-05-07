@@ -40,6 +40,13 @@ body {
 .header .search-box #search-Form {
 
 }
+#subSerch {
+    width: 40px;
+    height: 30px;
+}
+.search-hot-words{
+    width: 150px;
+}
 #kword {
     float: right;
     padding: 0;
@@ -99,27 +106,27 @@ body {
     font-size: 12px;
 }
 .category-nav-body .item a{
-    display: block;
-    height: 100%;
-    width: 100%;
+
 }
 .category-nav a{
-    display: block;
-    width: 100%;
+
 }
 /*datu*/
 
 
 /*热门歌曲*/
 .wrapper {
-    margin-left: 50px;
+    margin-left: 10px;
     width: 750px;
     float: left ;
 }
 
-
+.right-side a{
+    font-size: 16px;
+}
 
 .right-side {
+    font-size: 14px;
     float: right;
     margin-right: 50px;
     border: solid 1px #74b9ff;
@@ -136,6 +143,7 @@ body {
     display: block;
     height: 100%;
     width: 100%;
+    font-size: 14px;
 }
 .aside img{
     width: 160px;
@@ -150,6 +158,7 @@ body {
     display: block;
     height: 100%;
     width: 100%;
+    font-size: 14px;
 }
 .section {
     text-align: center;
@@ -172,3 +181,4 @@ body {
 .swiper-wrapper img{
     width: 750px;
 }
+

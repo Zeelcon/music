@@ -110,20 +110,20 @@ body {
 }
 .product-detail-main {
     position: absolute;
-    right: 0;
-    width: 50%;
-
+    left: 0;
+    width: 62%;
+}
+.sma {
+    font-size: 10px;
 }
 .product-comment{
-
     margin-top: 10px;
     border: 1px black solid;
     margin-right: 82%;
     width: 200px;
 }
 .product-price{
-
-    margin-right: 63%;
+    width: 100%;
     border: 1px black solid;
 }
 .product-comment ul{
@@ -145,6 +145,70 @@ body {
 .section-content{
     margin-left: 30px;
 }
-.player1{
+#file {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+}
 
+#canvas {
+  position: fixed;
+  left: 20%;
+  top: 30%;
+  width: 30%;
+  height: 20%;
+}
+
+#audio {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  width: calc(100% - 20px);
+    z-index: 99999;
+}
+.product-comment{
+
+}
+.history{
+    border: 1px solid black;
+    position: fixed;
+    width: calc(200px - 20px);
+    right: 20%;
+    bottom: 12%;
+}
+.section{
+    border: 1px solid black;
+    position: fixed;
+    width: calc(200px - 20px);
+    right: 0;
+    bottom: 12%;
+}
+.product-detail-comment{
+    width: 100%;
+        /*border: 1px solid black;*/
+}
+.comment-container{
+    width: 62%;
+    /*border: 1px solid black;*/
+}
+.comments-box{
+    border: 1px solid black;
+    position: fixed;
+    width: calc(300px - 20px);
+    right: 38%;
+    bottom: 12%;
+}
+.comments-words{
+    width: 100%;
+    border: 1px solid black;
+}
+.many-comment{
+    text-align: center;
+}
+.writebox{
+    width: 100%;
+}
+.in-writebox{
+    width: 80%;
 }

@@ -18,7 +18,7 @@
             <span class="logo-tip">Commusic欢迎您！</span>
         </h1>
     </div>
-    <div id="log" class="content clearfix">
+    <div class="content clearfix">
         <!--登录注册模块-->
         <div id="unauth_main" class="login-regist">
             <div class="login-box switch_box" style="display:block;">
@@ -43,12 +43,12 @@
                 </div>
                 <div class="pass-relink">
                     还没有commusic账号？
-                    <a id="switch" class="switch" href="#" onclick="display1();">免费注册</a>
+                    <a class="switch" href="javascript:;">免费注册</a>
                 </div>
                 </form>
             </div>
         <!--登录模块 end--->
-        <div id="reg" class="regist-box switch_box" style="display: none">
+        <div class="regist-box switch_box" style="display: none;">
             <div class="title">用户注册</div>
             <form id="registerForm" class="formBox" method="post" action="">
                 {% csrf_token %}
@@ -56,11 +56,6 @@
                     <div class="itembox user-name">
                         <div class="item">
                             {{ user.username }}
-                        </div>
-                    </div>
-                    <div class="itembox user-name">
-                        <div class="item">
-                            {{ user.email }}
                         </div>
                     </div>
                     <div class="itembox user-name">
@@ -86,26 +81,15 @@
                     <label for="agree" class="autologon">已阅读并同意用户注册协议</label>
                 </div>
                 <input type="submit" value="免费注册" id="J_RegButton" class="pass-btn tabInput" />
-{#            <div class="alert alert-danger" role="alert">{{ song }}</div>#}
+                <div class="pass-reglink">已有我的音乐账号
+                <a class="switch" href="javascript:;">立即登录</a></div>
                 </div>
-                </form>
+            <div class="alert alert-danger" role="alert">{{ song }}</div>
+            </form>
         </div><!--注册模块end-->
         </div>
     </div>
 </div>
-<script>
-    function display1() {
-        reg = document.getElementById('reg');
-        reg.style.display='inline';
-    }
-    function display2() {
-        reg = document.getElementById('reg');
-        reg.style.display='none';
-    }
-
-        {#document.getElementById('obj').style.backgroundColor="#003366″;#}
-
-</script>
 <script data-main="{% static "js/user.js" %}" src="{% static "js/require.js" %}"></script>
 <script src={% static "js/vue.js" %}></script>
 <script src="{% static "js/jq1.12.4.js" %}"></script>

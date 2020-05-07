@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="{% static "css/index.css" %}">
 <link rel="stylesheet" href="{% static "css/base.css" %}">
 <link rel="stylesheet" href="{% static "css/swiper.min.css" %}">
+<link rel="stylesheet" href="{% static "bootstrap-3.3.7/css/bootstrap.min.css" %}">
 {% endblock %}
 {% block body %}
 <body class="index">
@@ -25,14 +26,17 @@
             <li>
                 <a href="{% url 'home' 1 %}">用户中心</a>
             </li>
+
         </ul><!--end nav-box-->
     <div class="search-box">
-        <form id="searchForm" actions="{% url 'search' 1 %}" method="post">
+        <form id="searchForm" action="{% url 'search' 1 %}" >
             {% csrf_token %}
             <div class="search-keyword">
                 <input id="kword" name="kword" type="text" class="keyword" maxlength="120">
             </div>
-            <input id="subSerch" type="submit" class="search-button" value="搜 索">
+            <button id="subSerch" type="submit" class="search-button">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
         </form>
         <div id="suggest" class="search-suggest"></div>
         <div class="search-hot-words">
@@ -50,16 +54,16 @@
     <div class="nav-box-inner">
         <div class="category-nav">
             <div class="category-nav-header">
-                <img src="{% static "image/style.png" %}">
+                <img src="{% static "image/style.png" %}" alt="">
             </div>
             <div class="category-nav-body">
                 {% for l in labels %}
                 <div class="item" data-index="l">
-                    <h3>
+                    <h4>
                         <a href="{% url 'ranking' %}?type={{ l.id }}">
                             {{ l.name }}
                         </a>
-                    </h3>
+                    </h4>
                 </div>
                 {% endfor %}
             </div>
@@ -70,14 +74,14 @@
     <div class="main">
                 <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
                     <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-654px, 0px, 0px);">
-                        <div class="swiper-slide swiper-slide-active" style="width: 610px;">
+                        <div class="swiper-slide" style="width: 610px;">
                             <img class="datu" src="{% static "image/datu-1.jpg" %}">
                         </div>
-                        <div class="swiper-slide swiper-slide-next" style="width: 610px;">
+                        <div class="swiper-slide" style="width: 610px;">
                             <img class="datu" src="{% static "image/datu-2.jpg" %}">
                         </div>
                         <div class="swiper-slide" style="width: 610px;">
-                            <img class="datu" src="{% static "image" %}">
+
                         </div>
                     </div>
                     <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
@@ -150,11 +154,11 @@
                 <a target="play" href="{% url 'play' item.song.id %}" class="pic layz_load pic_po">
                     <img data-src="{{ item.song.img.url }}">
                 </a>
-                <h3>
+                <h5>
                     <a target="play" href="{% url 'play' item.song.id %}">
                         {{ item.song.name }}
                     </a>
-                </h3>
+                </h5>
                 <div class="singer">
                     <span>{{ item.song.singer }}</span>
                 </div>
@@ -196,10 +200,13 @@
         padding-right: 20px;
         line-height: 80px;
 </style>-->
+
 <script src="{% static "js/swiper.min.js" %}"></script>
 <script>
     var swiper = new Swiper('.swiper-container');
   </script>
+<script src="{% static "js/jq1.12.4.js" %}"></script>
+<script src="{% static "bootstrap-3.3.7/js/bootstrap.min.js" %}"></script>
 <script data-main="{% static "js/index.js" %}" src="{% static "js/require.js" %}"></script>
 </body>
 {% endblock %}

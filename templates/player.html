@@ -1,5 +1,45 @@
-window.onload = function () {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐播放器</title>
+<style>
+      #file {
+          position: fixed;
+          top: 10px;
+          left: 10px;
+          z-index: 100;
+      }
+      
+      #canvas {
+          position: fixed;
+          left: 20%;
+          top: 30%;
+          width: 30%;
+          height: 20%;
+      }
+      
+      #audio {
+          position: fixed;
+          left: 15%;
+          top: 50%;
+          bottom: 10px;
+          width: calc(40% - 20px);
+      }
+</style>
+</head>
+<body>
+ <h2 style="padding-top: 50px">请选择一首本地音频文件</h2>
+<div id="content">
+	
+    <input type="file" id="file" accept="audio/*"/>
+    <canvas id="canvas"></canvas>
+    <audio id="audio" controls></audio>
+</div>
+<script type="text/javascript">
 
+window.onload = function () {
+ 
  var file = document.getElementById("file");
  var audio = document.getElementById("audio");
 
@@ -72,3 +112,6 @@ window.onload = function () {
      audio.play();
  };
 };
+</script>
+</body>
+</html>

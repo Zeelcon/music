@@ -4,7 +4,7 @@ from .models import *
 def indexView(request):
     songDynamic =Dynamic.objects.select_related('song')
     #热搜
-    searchs = songDynamic.order_by('-search').all()[:8]
+    searchs = songDynamic.order_by('-search').all()[:1]
     #分类
     labels = Label.objects.all()
     #热门

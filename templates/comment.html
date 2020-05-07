@@ -6,6 +6,7 @@
 <link rel="shortcut icon" href="{% static "css/comment.css" %}">
 <link rel="stylesheet" href="{% static "css/comment.css" %}">
 <link rel="stylesheet" href="{% static "css/base.css" %}">
+<link rel="stylesheet" href="{% static "bootstrap-3.3.7/css/bootstrap.min.css" %}">
 {% endblock %}
 {% block body %}
 <body class="index">
@@ -92,15 +93,15 @@
                     </div>
                     <div class="comments-list-content">
                         <div class="single-score clearfix">
-                            <span class="date">{{ item.date }}</span>
-                            <div><span class="score">{{ item.user }}</span> </div>
+                            <span class="date">日期：{{ item.date }}</span>&nbsp&nbsp&nbsp&nbsp
+                            <span class="score">用户：{{ item.user }}</span>
                         </div>
                         <!--comments-content-->
                         <div class="comments-content">
                             <div class="J_CommentContent comment-height-limit">
                                 <div class="content-inner">
                                     <div class="comments-words">
-                                        <p>{{ item.text }}</p>
+                                        <p>{{ item.text }}</p><br>
                                     </div>
                                 </div>
                             </div>
@@ -132,5 +133,7 @@
         </div>
     </div>
 </div>
+<script src="{% static "js/jq1.12.4.js" %}"></script>
+<script src="{% static "bootstrap-3.3.7/js/bootstrap.min.js" %}"></script>
 </body>
 {% endblock %}

@@ -30,4 +30,9 @@ class MyUserCreationForm(UserCreationForm):
                     'class':'txt tabInput',
                     'placeholder':'用户名'}
             ),
+            'email': forms.widgets.TextInput(
+                attrs={
+                    'class': 'txt tabInput',
+                    'placeholder': '邮箱'}
+            ),
         }

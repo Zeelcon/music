@@ -5,7 +5,7 @@ from django.views.generic import ListView
 
 def rankingView(request):
     #热搜歌曲
-    searchs = Dynamic.objects.select_related('song').order_by('-search').all()[:4]
+    searchs = Dynamic.objects.select_related('song').order_by('-search').all()[:1]
     #歌曲分类列表
     labels = Label.objects.all()
     #歌曲列表信息
@@ -26,9 +26,9 @@ class RankingList(ListView):
         #获取请求参数
         t = self.request.GET.get('type','')
         if t:
-            dynamics = Dynamic.objects.select_related('song').filter(song__label=t).order_by('-plays').all()[:10]
+            dynamics = Dynamic.objects.select_related('song').filter(song__label=t).order_by('-plays').all()
         else:
-            dynamics = Dynamic.objects.select_related('song').order_by('-plays').all()[:10]
+            dynamics = Dynamic.objects.select_related('song').order_by('-plays').all()
         return dynamics
     #添加其他变量
     def get_context_data(self, **kwargs):
@@ -38,3 +38,5 @@ class RankingList(ListView):
         #所有歌曲分类
         context['labels'] = Label.objects.all()
         return context
+# def styleList(request):
+#     return render(request, 'style.html', locals())

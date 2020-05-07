@@ -13,9 +13,9 @@ class LabelAdmin(admin.ModelAdmin):
 
 @admin.register(Song)
 class SongAdmin(admin.ModelAdmin):
-    list_display = ['id','name','singer','album','languages','release','img','lyrics','file']
-    search_fields = ['name','singer','album','languages']
-    list_filter = ['singer','album','languages']
+    list_display = ['id','name','author','release','text','file']
+    search_fields = ['name','author']
+    list_filter = ['author']
     ordering = ['id']
 
 @admin.register(Dynamic)

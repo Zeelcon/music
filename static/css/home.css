@@ -106,8 +106,9 @@ body {
     list-style-type: none;
 }
 .mod_songlist{
-    width: 100%;
+    width: 200px;
     border: 1px solid black;
+    margin-left: 115px;
 }
 .songlist__header li{
     display: inline;
@@ -122,4 +123,6 @@ body {
 .mod_tab img{
     height: 50px;
 }
-
+.page-box {
+    margin-left: 200px;
+}

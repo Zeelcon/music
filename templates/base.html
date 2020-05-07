@@ -1,24 +1,28 @@
 <!DOCTYPE html>
+{% load static %}
 <!--这是一个公用的页面-->
-<html lang="en">
+<html lang="zh-CN">
 <head>
-
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>Commusic音乐交流社区</title>
     {% block link %}
+    <link rel="stylesheet" href="{% static "css/swiper.min.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap-3.3.7/css/bootstrap.min.css" %}">
     {% endblock %}
 </head>
     {% block body %}{% endblock %}
-<div class="footer">
-    <div class="footer-1">
-        <p>commusic音乐社区 from zeelcon-chen</p>
-    </div>
+{#<div class="footer">#}
+{#    <div class="footer-1">#}
+{#        <p>commusic音乐社区 from zeelcon-chen</p>#}
+{#    </div>#}
 </div>
 <body>
-
+<script src="{% static "js/jq1.12.4.js" %}"></script>
+<script src="{% static "bootstrap-3.3.7/js/bootstrap.min.js" %}"></script>
 </body>
 </html>

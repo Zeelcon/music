@@ -134,7 +134,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace("\\", "/")
 #配置自定义模型
 AUTH_USER_MODEL = 'user.MyUser'
 
+#分页设置
+REST_FRAMEWORK = {'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
+                  'PAGE_SIZE':10}

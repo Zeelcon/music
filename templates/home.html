@@ -6,6 +6,7 @@
 <link rel="shortcut icon" href="{% static "css/home.css" %}">
 <link rel="stylesheet" href="{% static "css/home.css" %}">
 <link rel="stylesheet" href="{% static "css/base.css" %}">
+<link rel="stylesheet" href="{% static "bootstrap-3.3.7/css/bootstrap.min.css" %}">
 {% endblock %}
 {% block body %}
 <body class="index">
@@ -25,23 +26,6 @@
                 <a href="{% url 'home' 1 %}">用户中心</a>
             </li>
         </ul><!--end nav-box-->
-    <div class="search-box">
-        <form id="searchForm" actions="{% url 'search' 1 %}" method="post">
-            {% csrf_token %}
-            <div class="search-keyword">
-                <input id="kword" name="kword" type="text" class="keyword" maxlength="120">
-            </div>
-            <input id="subSerch" type="submit" class="search-button" value="搜 索">
-        </form>
-        <div id="suggest" class="search-suggest"></div>
-        <div class="search-hot-words">
-            {% for s in searchs %}
-            <a target="play" href="{% url 'play' s.song.id %}">
-                {{ s.song.name }}
-            </a>
-            {% endfor %}
-        </div>
-    </div>
 </div>
 <!--end header-->
 <div class="mod_profile js_user_data" style="">
@@ -63,20 +47,21 @@
 
     </div>
 </div>
-<!--歌曲播放记录--->
-<div class="main main--profile" style="">
-    <div class="mod_tab profile_nav" role="nav" id="nav">
+<!--文章浏览记录--->
+<div class=".container" style="">
+<div class="row art">
+<div class="mod_tab profile_nav col-md-2" role="nav" id="nav">
         <img class="mod_tab__item mod_tab__current" id="hear_tab" src="{% static "image/history.png" %}">
     </div>
-    <div class="js_box" style="display: block;">
+<div class="mod_tab profile_nav col-md-2" role="nav" id="nav">
+        <img class="mod_tab__item mod_tab__current" id="hear_tab" src="{% static "image/history.png" %}">
+    </div>
+</div>
+<div class="row art">
+    <div class="js_box col-md-3" style="display: block;">
         <div class="profile_cont">
             <div class="js_sub" style="display: block;">
                 <div class="mod_songlist">
-                    <ul class="songlist__header">
-                        <li class="songlist__header_name">歌曲</li>
-                        <li class="songlist__header_author">歌手</li>
-                        <li class="songlist__header_time">时长</li>
-                    </ul>
                     <ul class="songlist__list">
                         {% for item in pages.object_list %}
                         <li>
@@ -97,7 +82,52 @@
                     </ul>
                 </div><!--end mod_songlist-->
             <!--分页-->
-            <div class="page-box">
+            <div class="page-box col-md-2">
+                <div class="pagebar" id="pageBar">
+                    {% if pages.has_previous %}
+                    <a href="{% url 'home' pages.previous_page_number %}"
+                       class="prev" target="_self"><i></i>上一页</a>
+                    {% endif %}
+                {% for page in pages.paginator.page_range %}
+                {% if pages.number == page %}
+                    <span class="sel">{{ page }}</span>
+                {% else %}
+                    <a href="{% url 'home' page %}" target="_self">{{ page }}</a>
+                {% endif %}
+                {% endfor %}
+                {% if pages.has_next %}
+                    <a href="{% url 'home' pages.next_page_number %}" class="next" target="_self">下一页<i></i></a>
+                {% endif %}
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+<div class="js_box col-md-2" style="display: block;">
+        <div class="profile_cont">
+            <div class="js_sub" style="display: block;">
+                <div class="mod_songlist">
+                    <ul class="songlist__list">
+                        {% for item in pages.object_list %}
+                        <li>
+                            <div class="songlist__item songlist__item--even">
+                                <div class="songlist__songname">
+                                    <a href="{% url 'play' item.id %}"
+                                       class="js_song songlist__songname_txt">{{ item.name }}</a>
+                                </div>
+                                <div class="songlist__artist">
+                                    <a href="javascript:;" class="singer_name">
+                                        {{ item.singer }}
+                                    </a>
+                                </div>
+                                <div class="songlist__time">{{ item.time }}</div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div><!--end mod_songlist-->
+            <!--分页-->
+            <div class="page-box col-md-2">
                 <div class="pagebar" id="pageBar">
                     {% if pages.has_previous %}
                     <a href="{% url 'home' pages.previous_page_number %}"
@@ -119,5 +149,9 @@
         </div>
     </div>
 </div>
+</div>
+
+<script src="{% static "js/jq1.12.4.js" %}"></script>
+<script src="{% static "bootstrap-3.3.7/js/bootstrap.min.js" %}"></script>
 </body>
 {% endblock %}

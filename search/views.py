@@ -8,7 +8,7 @@ from index.models import *
 def searchView(request, page):
     if request.method == 'GET':
         #热搜歌曲
-        searchs = Song.objects.select_related('song').order_by('-search').all()[:6]
+        searchs = Dynamic.objects.select_related('song').order_by('-search').all()[:1]
         #获取搜索内容，如果kword为空。就查询全部歌曲
         kword = request.session.get('kword', '')
         if kword:
@@ -19,7 +19,7 @@ def searchView(request, page):
             #分页功能
         paginator = Paginator(songs, 5)
         try:
-            pages = Paginator.page(page)
+            pages = Paginator.page(page,1)
         except PageNotAnInteger:
             pages = paginator.page(1)
         except EmptyPage:
@@ -39,5 +39,5 @@ def searchView(request, page):
         return render(request, 'search.html', locals())
     else:
         #处理POST请求，并重定向搜索页面
-        request.session['kword'] = request.POST.get('kword', '')
-        return  redirect(reverse('search', kwargs={'page':1}))
+        request.session['kword'] = request.GET.get('kword', '')
+        return redirect(reverse('search', kwargs={'page':1}))

@@ -16,17 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.staticfiles.views import serve
 from django.urls import path, include, re_path
+from django.conf.urls.static import static
 
 from realpro import settings
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('index.urls')),
+    path('user/', include('user.urls')),
     path('ranking.html', include('ranking.urls')),
+
     path('play/', include('play.urls')),
     path('comment/', include('comment.urls')),
     path('search/', include('search.urls')),
-    path('user/', include('user.urls')),
+    path('', include('index.urls')),
+
+    # path('release/', include('testindex.urls')),
     # 定义媒体资源路由信息
+
     re_path('media/(?P<path>.*)', serve,{'document_root':settings.MEDIA_ROOT}, name='media')
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
